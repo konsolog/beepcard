@@ -29,7 +29,7 @@ while on: # infinite looping
 
     if sel == 5:
         print("Thank you for using the LRT-1 System!")
-        on = False
+        on = False # graceful exit unlike exit()
     elif sel == 2:
             print("""****************************
     All LRT-1 Stations
