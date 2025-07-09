@@ -1,6 +1,5 @@
 #this will be fun
-
-fare
+fare = 0.0
 
 def main():
     print(f"Welcome to the LRT-1 System!\n\n****************************\nLoad Balance: PHP {fare}\nChoices\n1-Load Beep Card\n2-Display All Stations\n3-Trip and Fare\n4-Transaction History\n5-Exit")
@@ -10,4 +9,4 @@ def main():
 
 if main() == 5:
     print("Thank you for using the LRT-1 System!")
-    exit()
+    # exit()
