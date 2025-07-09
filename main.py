@@ -1,7 +1,7 @@
 #this will be fun
 load = 0.0
 
-print(f"Welcome to the LRT-1 System!\n")
+print(f"Welcome to the LRT-1 System!")
 def main():
     print(f"""
 ****************************
@@ -18,7 +18,6 @@ Choices
     try:
         call = int(call)
     except:
-        print("⚠️ ACHTUNG! THE CHOICE IS INVALID")
         return 0
 
     return call # This returns (outputs) the selected choice
