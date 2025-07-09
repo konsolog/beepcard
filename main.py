@@ -9,4 +9,5 @@ def main():
     return call # This returns (outputs) the selected choice
 
 if main() == 5:
+    print("Thank you for using the LRT-1 System!")
     exit()
