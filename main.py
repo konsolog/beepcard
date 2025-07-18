@@ -102,26 +102,25 @@ while on: # infinite looping until 5 is input
     sel = main()
 
     if sel == 1: # top up (why is this so complicated)
-        valid = False
-        while not valid:
+        done = False
+        while not done:
             a = input("Enter the amount (greater than 0) to load on your beep card: ")
             try:
                 v = int(a)
                 if v > 0:
-                    completed = False
-                    while not completed:
-                        q = input("Complete the transaction (Y/N)? ").upper()
+                    # confirmation of the transaction
+                    q = ""
+                    while q not in ("Y", "N"):
+                        q = input("Complete the transaction (Y/N)? ").upper() # covers all cases: y or Y, n or N
                         if q == "Y":
                             load += v
                             print(f"PHP {v:.2f} successfully loaded to your beep card.")
                             history += f"Top-up     {v:.2f}     {load:.2f}\n"
                             history = trim(history, 5)
-                            valid = True
-                            completed = True
+                            done = True  # exit all loops
                         elif q == "N":
                             print("Cancelled Transaction")
-                            valid = True
-                            completed = True
+                            done = True  # exit all loops
                         else:
                             print("Invalid input (must be Y/N)")
                 else:
