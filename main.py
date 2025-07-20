@@ -6,6 +6,7 @@
 # plagiarized the work of other students and/or persons.
 # Gerald James Z. Tan, DLSU ID# 12470732
 # David Angelo D. Torreon, DLSU ID# 12466514 
+# Josh Caleb B. Aggabao, DLSU ID# 12462098
 
 # Description: A loadable train card system
 # Programmed by: Gerald James Z. Tan, STEM11-P
@@ -41,7 +42,7 @@ def amnt_newlines(s):
 
     while not end:
         try:
-            if s[i] == '\n':
+            if s[i] == '\n': # going through the whole string, add one for every \n found
                 count += 1
             i += 1
         except IndexError:
@@ -49,8 +50,7 @@ def amnt_newlines(s):
 
     return count
 
-
-def trim(s, n): # holy shit
+def trim(s, n): 
     # get total number of newlines first
     total = amnt_newlines(s)
     if total <= n:
@@ -60,11 +60,11 @@ def trim(s, n): # holy shit
     size = 0
     end = False
     while not end:
-        try:
-            s[size]
+        try: # go through the whole string again counting the amnt of lines
+            s[size] 
             size += 1
         except IndexError:
-            end = True
+            end = True # SIX SEVENNN
 
     # go backwards to find the (n+1)th newline
     c = 0
@@ -94,11 +94,10 @@ def trim(s, n): # holy shit
         except IndexError:
             finished = True
 
-    return res
-    # God save me for I am not your strongest soldier
+    return res # God save me for I am not your strongest soldier
 
-on = True
-while on: # infinite looping until 5 is input
+on = True 
+while on: # infinite looping until 5 is input/main loop
     sel = main()
 
     if sel == 1: # top up (why is this so complicated)
@@ -141,6 +140,31 @@ while on: # infinite looping until 5 is input
     8-UN Avenue 
     9-Central Terminal 
     10-Carriedo""")
+        
+    elif sel == 3: # select the station and calculate the fare
+        print(f"""
+****************************
+Load Balance: PHP {load:.2f}
+Note: The origin and destination should not be the same.
+""")
+        stations = [
+            "BACLARAN", "EDSA", "LIBERTAD", "GIL PUYAT", "VITO CRUZ", "QUIRINO", "PEDRO GIL", "UNITED NATIONS", "CENTRAL", "CARRIEDO"
+        ]
+
+        origin = int(input("Enter the station's number corresponding to your origin:"))
+        destination = int(input("Enter the station's number corresponding to your destination:"))
+
+        originStation = stations[origin-1] 
+        destinationStation = stations[destination-1]
+
+        count = abs(origin - destination)
+
+        print(f"""
+------------------------------------------- 
+Fare calculation
+""")
+        print(f"Journey Details: {originStation} -> {destinationStation}")
+
             
     elif sel == 4: # most code is handled at the top outside the loop
         print("""**************************** 
