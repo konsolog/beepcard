@@ -16,7 +16,7 @@ load = 0.0
 history = ""
 
 print(f"Welcome to the LRT-1 System!")
-def main():
+def main(): # this handles the inputs for the primary part of the main menu
     print(f"""****************************
 Load Balance: PHP {load:.2f}
 Choices
@@ -35,7 +35,7 @@ Choices
 
     return call # this returns (outputs) the selected choice
 
-def amnt_newlines(s):
+def amnt_newlines(s): # this counts how many newlines (\n) there are
     count = 0
     i = 0
     end = False
@@ -50,7 +50,7 @@ def amnt_newlines(s):
 
     return count
 
-def trim(s, n): 
+def trim(s, n): # trim the first newline of history, keeping only the (n+1)th new line, so if n=0, it would keep everything after the last newline. if n=1, keep everything after the second to last newline, and so on.
     # get total number of newlines first
     total = amnt_newlines(s)
     if total <= n:
@@ -74,14 +74,14 @@ def trim(s, n):
 
     while not done and i >= 0:
         try:
-            if s[i] == '\n':
+            if s[i] == '\n': # picks up the (size - 1)th's \n
                 c += 1
                 if c == n + 1:
                     stop_index = i + 1
                     done = True
             i -= 1
-        except IndexError:
-            done = True  # fallback, though shouldnt be needed since size is known
+        except IndexError: # fail to get the index
+            done = True  # fallback, tho shouldnt be needed since size is known
 
     # goes through from stop_index to the end
     res = ""
@@ -124,7 +124,7 @@ while on: # infinite looping until 5 is input/main loop
                             print("Invalid input (must be Y/N)")
                 else:
                     print("Amount must be greater than 0")
-            except ValueError:
+            except ValueError: # fail to get number
                 print("Invalid amount (must be a positive number)")
 
     elif sel == 2: # print the stations
